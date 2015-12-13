@@ -1,4 +1,14 @@
-<h1>
-    <%= gravatar_for @user %>
-    <%= @user.name %>
-</h1>
+<div class="row">
+  <aside class="col-md-4">
+	<section class="user_info">
+	  <h1>
+		<%= gravatar_for @user %>
+		<%= @user.name %>
+	  </h1>
+	  <div class="user_info_detail">
+	  	<div><%= @user.profile %></div>
+			<div><span class="glyphicon glyphicon-map-marker"></span><%= @user.area %></div>
+		</div>
+	</section>
+  </aside>
+</div>
