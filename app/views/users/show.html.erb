@@ -6,8 +6,12 @@
 		<%= @user.name %>
 	  </h1>
 	  <div class="user_info_detail">
-	  	<div><%= @user.profile %></div>
-			<div><span class="glyphicon glyphicon-map-marker"></span><%= @user.area %></div>
+	  	<% if @user.profile.present? %>
+	  		<div><%= @user.profile %></div>
+	  	<% end %>
+	  	<% if @user.area.present? %>
+				<div><span class="glyphicon glyphicon-map-marker"></span><%= @user.area %></div>
+			<% end %>
 			<div><span class="glyphicon glyphicon-calendar"></span><%= @user.created_at.strftime('%Y年%m月%d日') %>に登録</div>
 		</div>
 	</section>
