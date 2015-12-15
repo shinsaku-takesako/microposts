@@ -7,6 +7,15 @@
       </h1>
       <div><%= link_to @user.following_users.count.to_s + " Followings", followings_user_path %></div>
       <div><%= link_to @user.follower_users.count.to_s + " Followers", followers_user_path %></div>
+		  <div class="user_info_detail">
+		  	<% if @user.profile.present? %>
+		  		<div><%= @user.profile %></div>
+		  	<% end %>
+		  	<% if @user.area.present? %>
+					<div><span class="glyphicon glyphicon-map-marker"></span><%= @user.area %></div>
+				<% end %>
+				<div><span class="glyphicon glyphicon-calendar"></span><%= @user.created_at.strftime('%Y年%m月%d日') %>に登録</div>
+			</div>
     </section>
   </aside>
   <div class="col-md-8">

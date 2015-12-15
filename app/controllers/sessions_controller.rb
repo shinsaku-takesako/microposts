@@ -13,11 +13,7 @@ class SessionsController < ApplicationController
       render 'new'
     end
   end
-<<<<<<< HEAD
-  
-=======
     
->>>>>>> master
   def destroy
     session[:user_id] = nil
     redirect_to root_path
