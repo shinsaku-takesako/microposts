@@ -1,0 +1,22 @@
+<div class="row">
+  <aside class="col-md-4">
+      <section class="user_info">
+          <%= render 'shared/user_info' %>
+      </section>
+  </aside>
+  <div class="col-md-8">
+    <%= render 'shared/micropost_search_form' %>
+    <% unless @search_items.nil? %>
+      <% if @search_items.count != 0 %>
+        <h3>Search for :'<%= params[:q] %>' (<%= @search_items.count %>)</h3>
+        <ol class="microposts">
+          <% @search_items.each do |search_item| %>
+            <%= render partial: 'shared/search_item', locals: { search_item: search_item } %>
+          <% end %>
+        </ol>
+      <% else %>
+        <h3>Woops! No Micropost!!</h3>
+      <% end %>
+    <% end %>
+  </div>
+</div>

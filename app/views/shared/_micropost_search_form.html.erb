@@ -1,0 +1,5 @@
+<%= form_tag({controller: "microposts", action: "search"}, method: "get")  do %>
+  <%= label_tag :q, "Search for:" %>
+  <%= text_field_tag :q, params[:q] ,class: 'form-control' %>
+  <%= submit_tag("Search") %>
+<% end %>

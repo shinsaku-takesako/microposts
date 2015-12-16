@@ -1,5 +1,5 @@
 class MicropostsController < ApplicationController
-    before_action :logged_in_user, only: [:create]
+    before_action :logged_in_user, only: [:create, :search]
     
     def create
         @micropost = current_user.microposts.build(micropost_params)
@@ -20,9 +20,19 @@ class MicropostsController < ApplicationController
        redirect_to request.referrer || root_url
     end
     
+    def search
+        unless params[:q].empty? 
+            @search_items = Micropost.where('content like ?', "%"+(params[:q])+"%")
+        else
+            flash.now[:danger] = "Input Keyword"
+            @search_items = nil
+        end
+    end
+    
     private
     
     def micropost_params
         params.require(:micropost).permit(:content)
     end
+    
 end

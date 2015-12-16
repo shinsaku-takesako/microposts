@@ -1,0 +1,8 @@
+<li id="micropost-<%= search_item.id %>">
+  <%= link_to gravatar_for(search_item.user, size: 50), search_item.user %>
+  <span class="user"><%= link_to search_item.user.name, search_item.user %></span>
+  <span class="content"><%= search_item.content %></span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(search_item.created_at) %> ago.
+  </span>
+</li>
